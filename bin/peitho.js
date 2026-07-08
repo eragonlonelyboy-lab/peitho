@@ -5,7 +5,8 @@
 // check. The persuasion is skill-driven (SKILL.md); this is what refuses to ship.
 const fs = require('fs');
 const { gateCopy, gateLine, scanHype } = require('../lib/gate');
-const { canProduceAssets, validatePositioning, validateAngles } = require('../lib/pipeline');
+const { canProduceAssets, validatePositioning, validateAngles, screenIdeas } = require('../lib/pipeline');
+const siblings = require('../lib/siblings');
 const pkg = require('../package.json');
 
 const args = process.argv.slice(2);
@@ -81,6 +82,34 @@ switch (cmd) {
     break;
   }
 
+  case 'ideas': {
+    const file = args[1];
+    if (!file || !fs.existsSync(file)) { out('usage: peitho ideas <ideas.json>   (Mode 0: what to sell)'); process.exit(1); }
+    const doc = readJson(file);
+    const r = screenIdeas(Array.isArray(doc) ? doc : (doc && doc.ideas));
+    if (r.ok) { out(`OK: ${r.count} idea(s), each with a buyer, a first-ten plan, unit economics and a cheap risk test.`); break; }
+    out('INCOMPLETE: an idea without a buyer, unit economics and a cheap risk test is a daydream.');
+    for (const i of r.incomplete) out(`  - ${i.name}: missing ${i.missing.join(', ')}`);
+    process.exit(1);
+    break;
+  }
+
+  case 'siblings': {
+    const s = siblings.detect();
+    out('installed: ' + (s.installed.join(', ') || 'none'));
+    const rec = siblings.recommend(s.installed);
+    out('recommended (missing ship-gate pairs): ' + (rec.map((r) => r.name).join(', ') || 'none, the gate is complete'));
+    for (const r of rec) out(`  - ${r.name}: ${r.why}`);
+    break;
+  }
+
+  case 'gate-route': {
+    const stage = args[1];
+    if (!stage) { out('usage: peitho gate-route <copy-critique|anti-slop|visual|numeric-claim>'); break; }
+    out(`${stage} -> ${siblings.routeGate(stage)}`);
+    break;
+  }
+
   case 'setup': {
     out('PEITHO setup check');
     out('------------------');
@@ -102,5 +131,8 @@ switch (cmd) {
     out('  peitho check <state.json>    may we produce assets yet? (positioning first)');
     out('  peitho position <p.json>     are all five Dunford components present?');
     out('  peitho bets <angles.json>    does every angle carry a cheapest test?');
+    out('  peitho ideas <ideas.json>    Mode 0: does each idea carry a buyer and a cheap risk test?');
+    out('  peitho siblings              detect installed Demiurge gods');
+    out('  peitho gate-route <stage>    which god owns this ship-gate stage');
     out('  peitho setup');
 }

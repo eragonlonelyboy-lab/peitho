@@ -3,7 +3,9 @@
 // and, just as importantly, does not reject the specific.
 const assert = require('assert');
 const { gateLine, gateCopy, scanHype, hasEmDash, genericAnywhere } = require('../lib/gate');
-const { validatePositioning, validateAngles, validateOffer, canProduceAssets } = require('../lib/pipeline');
+const { validatePositioning, validateAngles, validateOffer, canProduceAssets, validateIdea, screenIdeas } = require('../lib/pipeline');
+const siblings = require('../lib/siblings');
+const os = require('os'); const fsx = require('fs'); const pathx = require('path');
 
 let pass = 0, fail = 0;
 const tests = [];
@@ -130,6 +132,43 @@ t('a headline cannot be produced from positioning alone (law 2 holds)', () => {
   assert.strictEqual(r.allowed, false);
 });
 
+
+// --- Mode 0: what to sell (PEI-07, harvested from prompt #22) ---
+t('an idea without a buyer, unit economics or a cheap risk test is rejected', () => {
+  const r = validateIdea({ name: 'x', pitch: 'a thing' });
+  assert.strictEqual(r.ok, false);
+  assert(r.missing.includes('buyer') && r.missing.includes('unitEconomics') && r.missing.includes('riskTest'));
+});
+t('a complete idea validates', () => {
+  const r = validateIdea({ name: 'x', pitch: 'p', buyer: 'b', firstTen: 'f', cost: 'c', unitEconomics: 'u', risk: 'r', riskTest: 't' });
+  assert.strictEqual(r.ok, true);
+});
+t('screenIdeas names which idea is incomplete and why; zero ideas is not "all valid"', () => {
+  const r = screenIdeas([{ name: 'good', pitch: 'p', buyer: 'b', firstTen: 'f', cost: 'c', unitEconomics: 'u', risk: 'r', riskTest: 't' }, { name: 'vague' }]);
+  assert.strictEqual(r.ok, false);
+  assert.strictEqual(r.incomplete[0].name, 'vague');
+  assert.strictEqual(screenIdeas([]).ok, false);
+});
+
+// --- sibling detection + ship-gate routing (PEI-10) ---
+t('siblings: detects installed gods, ignores non-gods', () => {
+  const tmp = fsx.mkdtempSync(pathx.join(os.tmpdir(), 'peitho-sib-'));
+  fsx.mkdirSync(pathx.join(tmp, 'zoilus')); fsx.mkdirSync(pathx.join(tmp, 'not-a-god'));
+  const s2 = siblings.detect([tmp]);
+  assert(s2.installed.includes('zoilus'));
+  assert(!s2.installed.includes('not-a-god'));
+  assert(s2.missing.includes('veritas'));
+});
+t('siblings: recommends only the missing ship-gate pairs', () => {
+  const rec = siblings.recommend(['zoilus', 'veritas']).map((r) => r.name);
+  assert(!rec.includes('zoilus') && !rec.includes('veritas'));
+  assert(rec.includes('calliope') && rec.includes('pyrrho'));
+});
+t('gate-route: a missing sibling degrades honestly, it is never silently passed', () => {
+  assert.strictEqual(siblings.routeGate('copy-critique', ['zoilus']), 'zoilus');
+  assert(/SKIPPED \(zoilus not installed\)/.test(siblings.routeGate('copy-critique', [])));
+  assert.strictEqual(siblings.routeGate('numeric-claim', ['pyrrho']), 'pyrrho');
+});
 (async () => {
   for (const { name, fn } of tests) {
     try { await fn(); pass++; console.log('  ok  ' + name); }
