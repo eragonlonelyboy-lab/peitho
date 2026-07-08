@@ -29,17 +29,33 @@ Copy generators are a commodity. Every model writes a passable landing page. PEI
 
 **Mode 0 - WHAT TO SELL** (optional, upstream). Venture ideas matched to real skills, budget and time, each with a buyer, a first-ten-customers plan, unit economics, and the one risk to test cheaply this month.
 
-**Mode 1 - POSITION** (nothing else runs first).
-- Dunford positioning: real alternatives, unique attributes, the value they enable, the customer who cares most, the market category.
-- Competitor teardown: dissect a named rival, find the specific gap in offer, audience or messaging a sharper player can own.
-- Seven angles across distinct psychological drivers, then the two you would bet budget on and a cheap test for each.
-- A specific SWOT with cross-paired plays.
+**Mode 1 - POSITION** (nothing else runs first). Load the reference, do not work from memory.
+- **Dunford positioning** (`references/positioning.md`): the five components, and the statement template `For [segment] who [need], [offer] is the [category] that [key benefit], unlike [alternative], because [proof].` Plus three differentiated messaging hooks and the "where your positioning is weak" note.
+- **Seven angles** (`references/positioning.md`), one per named psychological driver: status, fear of missing out, identity, ease, speed, belonging, transformation. Then the two you would bet budget on and a cheap test for each this week.
+- **Competitor teardown** (`references/competitor-teardown.md`): six sections, label anything speculative, name the one thing of theirs you should NOT copy because it only works at their scale, end with "The wedge:" and one sentence.
+- **SWOT** (`references/swot.md`): 3 to 4 points per quadrant, internal and external split, two cross-pairs (Strength x Opportunity, Weakness x Threat), end with "This month:".
 - **Output:** positioning statement, the wedge line, two bets, their tests. Validate with `peitho position` and `peitho bets`.
 
-**Mode 2 - OFFER.** Pressure-test the offer and the price as a skeptical buyer: clarity, desirability, price against perceived value, risk reversal, the three objections that kill the sale. **Output:** offer, price, guarantee, objections with answers.
+**Mode 2 - OFFER** (`references/offer-pricing.md`). Score the offer out of 10 on clarity, desirability and believability, each with the reason and what would raise it. Surface the **five** objections most likely to kill the sale, not three. Give the price verdict (too high, too low, or mismatched) with a better-fitting model, three ways to make it a no-brainer, and end with "The tightened offer:" and one sentence. **Output:** offer, price, guarantee, five objections with answers.
 
-**Mode 3 - ASSETS** (only once `peitho check` says ALLOWED).
-Landing page, ranked hooks, ad variations plus which two to test first, pitch-deck narrative, cold outreach and its follow-up, sales-objection map, newsletter, retention-engineered script, thirty-day content calendar, transcript to content kit, and the persuasive case with a rebuttal to the strongest objection.
+**Mode 3 - ASSETS** (only once `peitho check` says ALLOWED). **Each asset has a reference file carrying its section structure, named taxonomies, constraints and quality bar. Load it. Do not write the asset from memory.**
+
+| Asset | Reference | The structure it must not lose |
+|---|---|---|
+| Landing page | `references/assets/landing-page.md` | 11 labelled sections, grade 6 reading level |
+| Hooks | `references/assets/hooks.md` | 10 hooks, one per named angle, ranked top 3 |
+| Ads | `references/assets/ads.md` | 8 variations, one per named angle, which two to test and the deciding metric |
+| Pitch deck | `references/assets/pitch-deck.md` | 10 slides in order, 3 parts each |
+| Cold outreach | `references/assets/cold-outreach.md` | 3 versions under 90 words, plus the 4-day follow-up |
+| Sales objections | `references/assets/sales-objections.md` | **seven** objections including the unspoken ones, 4 parts each |
+| Content calendar | `references/assets/content-calendar.md` | 30 days across 4 journey stages, 80/20 value ratio |
+| Content kit | `references/assets/content-kit.md` | 6 sections, every quote findable word for word |
+| Long-form script | `references/assets/long-form-script.md` | 5-second hook, re-hook, open loops, pattern interrupt |
+| Newsletter | `references/assets/newsletter.md` | subject plus 2 alternatives, preview text, one idea only |
+| Persuasive case | `references/assets/persuasive-case.md` | 5 parts, `[ADD SOURCE]` rather than an invented source |
+| Business ideas (Mode 0) | `references/assets/business-ideas.md` | 7 ideas, 6-part format, ranked top 3 by fit |
+
+Every reference also carries that prompt's **intake questions**. Ask them before producing. An asset written before its intake is answered is decoration.
 
 **Mode 4 - GATE** (before anything ships).
 1. `peitho gate <copy>`, the anti-generic gate. Blocking findings stop the ship.
