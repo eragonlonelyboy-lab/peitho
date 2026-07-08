@@ -1,8 +1,16 @@
-# PEITHO
+<div align="center">
+
+![Peitho, weighing a single word against a coin as borrowed lines turn to ash](assets/hero.png)
+
+# PEITHO: Positioning Earned, Instinct Tested, Hype Omitted
+
+*Every AI tool writes you marketing copy. PEITHO refuses to ship a line a competitor could have written.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-E8A23D.svg)](LICENSE)
 [![node](https://img.shields.io/badge/node-%3E%3D18-2C7A7B.svg)](package.json)
-[![tests](https://img.shields.io/badge/tests-21%2F21-2C7A7B.svg)](benchmarks/run.js)
+[![tests](https://img.shields.io/badge/tests-27%2F27-2C7A7B.svg)](benchmarks/run.js)
+
+</div>
 
 **Every AI tool writes you marketing copy. PEITHO refuses to ship a line a competitor could have written.**
 
@@ -114,7 +122,7 @@ Because a headline written before the wedge is decoration. `peitho check` return
 ## Verify me
 
 ```bash
-node benchmarks/run.js   # 21/21
+node benchmarks/run.js   # 27/27
 ```
 
 If PEITHO stops one borrowed line from reaching your landing page, star it. If it does not, do not.

@@ -4,7 +4,7 @@ Every claim PEITHO makes about itself, and every one it cannot make. A product w
 
 ## What is checkable
 
-`node benchmarks/run.js` runs 21 deterministic tests, no model involved. They prove:
+`node benchmarks/run.js` runs 27 deterministic tests, no model involved. They prove:
 
 - **The gate rejects the demonstrably borrowed.** `We help teams work smarter.` blocks on the cliche corpus. `Unleash your revolutionary workflow.` blocks on hype vocabulary. Any em dash blocks.
 - **The gate does not reject the specific.** `PEITHO refuses to ship a line a competitor could have written.` passes. `Reviews 145 prompts and rejects 35 of them.` passes. An ALL-CAPS brand token counts as specificity even at the start of a line.
