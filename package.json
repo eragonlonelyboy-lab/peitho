@@ -1,0 +1,11 @@
+{
+  "name": "demiurge-peitho",
+  "version": "0.1.0",
+  "description": "Your marketing copy sounds like everyone else's. PEITHO won't let it.",
+  "bin": { "peitho": "bin/peitho.js" },
+  "scripts": { "test": "node benchmarks/run.js" },
+  "keywords": ["marketing", "positioning", "copywriting", "go-to-market", "launch", "claude", "agent-skill", "demiurge"],
+  "author": "Eragon Lee",
+  "license": "MIT",
+  "files": ["bin", "lib", "references", "docs", "SKILL.md", "CLAUDE.md", "LICENSE", "README.md"]
+}
