@@ -62,6 +62,8 @@ Two independent critics scored both. Neither knew how either page was made. They
 
 And one structural law: **I never grade my own pitch.** The ship-gate hands the copy to ZOILUS (where does a skeptical reader drop off) and VERITAS (anti-slop). A seller marking its own homework is how generic copy ships.
 
+And the reader-side counterpart: **the zero-context test.** Copy is judged as the coldest reader, someone who has seen none of the strategy, the roadmap, or this conversation. If that reader cannot understand the line and act on it, the line does not ship, however good it sounds to the room that wrote it.
+
 ## A gate that knows what it does not know
 
 The gate separates two things on purpose:
@@ -118,6 +120,8 @@ Because a headline written before the wedge is decoration. `peitho check` return
 **ATHENA** decides whether to enter the market. **PEITHO** executes the go-to-market once the decision is made. **ZOILUS** judges the copy as an artifact. **VERITAS** cleans the prose. **CALLIOPE** designs the frame, I write the words, in that order. **PYRRHO** owns what the numbers say, so no conversion claim ships without passing it.
 
 **HORKOS** proves the campaign shipped. **MONETA** budgets the loop. **CHIRON** turns a repeated rejection into a rule.
+
+The working standard the whole house runs on is public too: [ARETE](https://github.com/eragonlonelyboy-lab/arete), five discipline gates any model can run. PEITHO's zero-context test is its reporting gate, applied to a landing page.
 
 ## Verify me
 
