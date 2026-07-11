@@ -2,7 +2,7 @@
 // Deterministic benchmarks. No LLM. These prove the gate rejects the generic
 // and, just as importantly, does not reject the specific.
 const assert = require('assert');
-const { gateLine, gateCopy, scanHype, hasEmDash, genericAnywhere } = require('../lib/gate');
+const { gateLine, gateCopy, zeroContextHandoff, scanHype, hasEmDash, genericAnywhere } = require('../lib/gate');
 const { validatePositioning, validateAngles, validateOffer, canProduceAssets, validateIdea, screenIdeas } = require('../lib/pipeline');
 const siblings = require('../lib/siblings');
 const os = require('os'); const fsx = require('fs'); const pathx = require('path');
@@ -84,6 +84,18 @@ t('but USING the banned word in prose still blocks (stripping code spans is not 
 t('clean copy passes the whole gate', () => {
   const copy = ['## Why', 'ZOILUS rejects at 99 percent where other reviewers approve at 80.', 'It never sees who wrote the code.'].join('\n');
   assert.strictEqual(gateCopy(copy).pass, true);
+});
+t('zero-context handoff rejects a missing caveat and a wrong promise', () => {
+  const expected = { audience: 'parents', promise: 'book a class', proof: 'live demo', action: 'start trial', caveat: 'Kuala Lumpur only' };
+  const observed = { audience: 'parents', promise: 'buy a membership', proof: 'live demo', action: 'start trial' };
+  const r = zeroContextHandoff(expected, observed);
+  assert.strictEqual(r.pass, false);
+  assert.deepStrictEqual(r.missing, ['caveat']);
+  assert.deepStrictEqual(r.mismatched, ['promise']);
+});
+t('zero-context handoff passes when a fresh readback recovers all five facts', () => {
+  const facts = { audience: 'parents', promise: 'book a class', proof: 'live demo', action: 'start trial', caveat: 'Kuala Lumpur only' };
+  assert.strictEqual(zeroContextHandoff(facts, { ...facts }).pass, true);
 });
 
 // --- positioning before copy (law 2, mechanical) ---

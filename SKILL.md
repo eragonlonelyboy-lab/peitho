@@ -19,6 +19,8 @@ Copy generators are a commodity. Every model writes a passable landing page. PEI
 
 ## The five laws (non-negotiable)
 
+**Zero-context handoff test.** Before a sales or launch asset ships, give only the artifact, offer facts and target reader to a fresh reviewer. It must identify the audience, promise, proof, action and major caveat without access to the maker's reasoning. If it cannot, the handoff failed even when the original team agrees with the copy.
+
 1. **Nothing generic.** If a line could run unchanged on a competitor's page, it fails. `peitho gate` enforces this mechanically: cliche corpus, plus a specificity test (no number, no proper noun, no quoted term means the line could name any product).
 2. **Positioning before copy.** No hooks, no headlines, no ads until the wedge exists. `peitho check` refuses to let the assets stage run until all five Dunford components are present, every angle carries a test, and the offer is priced.
 3. **Every angle carries its cheapest test.** Name the two angles you would bet real budget on and how to test each this week, plus the metric that decides. An untested angle is a guess wearing a suit.
