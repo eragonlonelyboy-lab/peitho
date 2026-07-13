@@ -7,5 +7,6 @@
   "keywords": ["marketing", "positioning", "copywriting", "go-to-market", "launch", "claude", "agent-skill", "demiurge"],
   "author": "Eragon Lee",
   "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/eragonlonelyboy-lab/peitho" },
   "files": ["bin", "lib", "references", "docs", "SKILL.md", "CLAUDE.md", "LICENSE", "README.md"]
 }
