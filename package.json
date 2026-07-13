@@ -1,6 +1,6 @@
 {
   "name": "demiurge-peitho",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Your marketing copy sounds like everyone else's. PEITHO won't let it.",
   "bin": { "peitho": "bin/peitho.js" },
   "scripts": { "test": "node benchmarks/run.js" },
