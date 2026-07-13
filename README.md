@@ -75,7 +75,7 @@ Because a rule that blocks real copy on a guess is worse than the generic line i
 
 ## Install for your agent
 
-> **From npm:** `npm install -g demiurge-peitho`, then `peitho setup` — or `npx demiurge-peitho gate <copy.md>` with no install. (Skill copy uses the source clone below.)
+> **From npm:** `npm install -g demiurge-peitho`, then `peitho setup` Or without installing: `npx demiurge-peitho gate <copy.md>`. (Skill copy uses the source clone below.)
 
 PowerShell:
 ```powershell
